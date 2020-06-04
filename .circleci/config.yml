@@ -3,6 +3,16 @@ jobs:
   build:
     docker:
       - image: circleci/node:10 # the primary container, where your job's commands are run
+    branches: # 告诉ci服务器要去去拉取master分支
+      only:
+        - master
     steps:
-      - run: echo "hello world" # run the `echo` command
-      - run: npm -v
+      - add_ssh_keys: # 告诉github我用什么密钥去与你通讯
+          fingerprints:
+            - "6b:43:ad:35:dc:5a:8a:9f:75:c6:15:0c:06:d6:d1:40" # 这里需要在ci里配置user key
+      - run:
+        name: Install
+        command: yarn install
+      - run:
+        name: Build
+        command: yarn build
