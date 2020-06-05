@@ -22,7 +22,7 @@ git config --global user.email "$GH_EMAIL" >/dev/null 2>&1
 git config --global user.name "$GH_NAME" >/dev/null 2>&1
 git init
 git remote add --fetch origin "$remote"
-
+GH_NAME"
 echo 'email is: '$GH_EMAIL
 echo 'name is: '$GH_NAME
 echo 'sitesource is: '$siteSource

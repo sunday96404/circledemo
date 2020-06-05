@@ -29,5 +29,5 @@ jobs:
           command: chmod +x script/deploy.sh
       - run:
           name: Run Deploy to Github pages
-          # 执行shell脚本
+          # 执行shell脚本,注意需要在ci平台对应项目的设置里设置于shell脚本对应的环境变量
           command:  ./script/deploy.sh
