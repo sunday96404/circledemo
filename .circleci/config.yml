@@ -11,9 +11,23 @@ jobs:
           fingerprints:
             - "6b:43:ad:35:dc:5a:8a:9f:75:c6:15:0c:06:d6:d1:40" # 这里需要在ci里配置user key
       - checkout
+      - restore_cache: # 有，就恢复缓存文件
+          key: dependences-simens
       - run:
           name: Install
           command: npm install
+      - save_cache:
+          key: dependences-simens   # 保存一个key值为。。。的缓存文件
+          paths:
+            - node_modules         # 指定需要被缓存的文件夹
       - run:
           name: Build
           command: npm run build
+      - run:
+          name: Prepare shell commands
+          # shell chmod +x 赋予执行权限
+          command: chmod +x script/deploy.sh
+      - run:
+          name: Run Deploy to Github pages
+          # 执行shell脚本
+          command:  ./script/deploy.sh
