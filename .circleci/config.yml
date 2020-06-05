@@ -12,7 +12,7 @@ jobs:
             - "6b:43:ad:35:dc:5a:8a:9f:75:c6:15:0c:06:d6:d1:40" # 这里需要在ci里配置user key
       - run:
           name: Install
-          command: yarn install
+          command: npm install
       - run:
           name: Build
-          command: yarn build
+          command: npm run build
