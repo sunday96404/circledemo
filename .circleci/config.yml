@@ -10,7 +10,7 @@ jobs:
       - add_ssh_keys: # 告诉github我用什么密钥去与你通讯
           fingerprints:
             - "6b:43:ad:35:dc:5a:8a:9f:75:c6:15:0c:06:d6:d1:40" # 这里需要在ci里配置user key
-      - checkout
+      - checkout # 去拉取这个分支
       - restore_cache: # 有，就恢复缓存文件
           key: dependences-simens
       - run:
